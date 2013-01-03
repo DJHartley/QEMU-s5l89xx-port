@@ -73,7 +73,7 @@ static uint32_t s5l8930_spi_mm_read(void *opaque, target_phys_addr_t offset)
 {
     S5L8930SPIState *s = (S5L8930SPIState *)opaque;
 
-	fprintf(stderr, "%s: base 0x%08x offset 0x%08x\n", __func__, s->base, offset);
+//	fprintf(stderr, "%s: base 0x%08x offset 0x%08x\n", __func__, s->base, offset);
 
     switch (offset) {
     case SPI_CONTROL:

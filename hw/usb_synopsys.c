@@ -417,7 +417,7 @@ static int synopsys_usb_tcp_callback(tcp_usb_state_t *_state, void *_arg, tcp_us
 			if(txfs + txfz > sizeof(state->fifos))
 				hw_error("usb_synopsys: USB transfer would overflow FIFO buffer!\n");
 
-			//printf("USB: Starting IN transfer on EP %d (%d)...\n", ep, amtDone);
+			printf("USB: Starting IN transfer on EP %d (%d)...\n", ep, amtDone);
 
 			if(amtDone > 0)
 			{
@@ -486,7 +486,6 @@ static int synopsys_usb_tcp_callback(tcp_usb_state_t *_state, void *_arg, tcp_us
 
 			if(_hdr->flags & tcp_usb_setup)
 			{
-			/*
 				printf("USB: Setup %02x %02x %02x %02x %02x %02x %02x %02x\n",
 						state->fifos[0],
 						state->fifos[1],
@@ -496,7 +495,6 @@ static int synopsys_usb_tcp_callback(tcp_usb_state_t *_state, void *_arg, tcp_us
 						state->fifos[5],
 						state->fifos[6],
 						state->fifos[7]);
-			*/
 				eps->interrupt_status |= USB_EPINT_SetUp;
 			}
 			else
@@ -763,7 +761,7 @@ static void synopsys_usb_write(void *_arg, target_phys_addr_t _addr, uint32_t _v
 {
 	synopsys_usb_state *state = _arg;
 	
-	//printf("USB: Write 0x%08x to 0x%08x.\n", _val, _addr);
+	printf("USB: Write 0x%08x to 0x%08x.\n", _val, _addr);
 
 	switch(_addr)
 	{
@@ -1027,10 +1025,10 @@ void register_synopsys_usb(target_phys_addr_t _addr, qemu_irq _irq, uint32_t _hw
 	synopsys_usb_state *state = DO_UPCAST(synopsys_usb_state,
 			busdev, sysbus_from_qdev(dev));
 
-	state->ghwcfg1 = _hwcfg[0];
-	state->ghwcfg2 = _hwcfg[1];
-	state->ghwcfg3 = _hwcfg[2];
-	state->ghwcfg4 = _hwcfg[3];
+	state->ghwcfg1 = 0xdeadbeef;
+	state->ghwcfg2 = 0xdeadbeef;
+	state->ghwcfg3 = 0xdeadbeef;
+	state->ghwcfg4 = 0xdeadbeef;
 
 	qdev_init_nofail(dev);
 

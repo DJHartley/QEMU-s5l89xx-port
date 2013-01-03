@@ -28,13 +28,9 @@
 
 #define DEVICE_NAME		"tcp_usb_bus"
 
-//#define TCP_USB_BUS_DEBUG
+#define TCP_USB_BUS_DEBUG
 
-#ifdef TCP_USB_BUS_DEBUG
 #	define debug_printf(args...) fprintf(stderr, DEVICE_NAME ": " args);
-#else
-#	define debug_printf(args...)
-#endif
 
 
 typedef struct _tcp_bus_state
@@ -357,6 +353,7 @@ static void *tcp_bus_thread(void *_arg)
 			(tcp_passthrough_state_t*)usb_create(bus, "tcp_usb_passthrough");
 		dev->parent = state;
 		dev->tcp = newState;
+		dev->dev.speed = 0x0400;
 		newState->callback_arg = dev;
 		qdev_init_nofail(&dev->dev.qdev);
 

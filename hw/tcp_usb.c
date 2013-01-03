@@ -31,7 +31,7 @@
 #include "usb.h"
 #include "tcp_usb.h"
 
-//#define DEBUG_TCP_USB
+#define DEBUG_TCP_USB
 
 void tcp_usb_init(tcp_usb_state_t *_state, tcp_usb_callback_t _cb, tcp_usb_closed_t _closed, void *_arg)
 {
@@ -121,7 +121,7 @@ static void tcp_usb_callback(tcp_usb_state_t *state, int _can_read, int _can_wri
 
 		// Fall through
 	case tcp_usb_read_request:
-		debug_printf("%s: tcp_usb_read_request\n", __func__);
+//		debug_printf("%s: tcp_usb_read_request\n", __func__);
 
 		if(state->amount_done < sizeof(*state->header))
 		{
@@ -335,7 +335,7 @@ static void tcp_usb_callback(tcp_usb_state_t *state, int _can_read, int _can_wri
 
 		// Fall through
 	case tcp_usb_read_response:
-		debug_printf("%s: tcp_usb_read_response\n", __func__);
+//		debug_printf("%s: tcp_usb_read_response\n", __func__);
 
 		if(state->amount_done < sizeof(*state->header))
 		{

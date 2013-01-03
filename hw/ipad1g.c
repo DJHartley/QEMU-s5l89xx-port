@@ -382,8 +382,8 @@ static void ipad1g_init(ram_addr_t ram_size,
 	s5l8930_state *cpu;
  	uint32_t llb_size, vrom_size;
 	ram_addr_t phys_flash, ramoff;
-	//target_phys_addr_t llb_base = LLB_LOAD_ADDR;
-	target_phys_addr_t llb_base = IBOOT_LOAD_ADDR;
+	target_phys_addr_t llb_base = LLB_LOAD_ADDR;
+	//target_phys_addr_t llb_base = IBOOT_LOAD_ADDR;
 	//target_phys_addr_t llb_base = 0;
 	target_phys_addr_t vrom_base  = 0x000000000;
 

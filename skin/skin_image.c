@@ -398,7 +398,7 @@ void *skin_loadpng(const char *fn, unsigned *_width, unsigned *_height)
     case PNG_COLOR_TYPE_GRAY:
         printf("\n");
         if(bitdepth < 8) {
-            png_set_gray_1_2_4_to_8(p);
+            //png_set_gray_1_2_4_to_8(p);
         }
         
     default:
