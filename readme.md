@@ -1,8 +1,7 @@
-# QEMU iOS Emulator
---------------------
-## QEMU s5l89xx Port
+### QEMU iOS Emulator
+#### QEMU s5l89xx Port
 
 
 
-# Credits
+### Credits
 Made possible by [cmw](https://github.com/cmwdotme/).
